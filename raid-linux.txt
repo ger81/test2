@@ -1,0 +1,21 @@
+mdadm --create /dev/md0 --level=5 --raid-devices=3 /dev/sdb1 /dev/sdc1 /dev/sdd1
+mdadm --remove /dev/md0
+
+mdadm --remove /dev/md0 /dev/sdb1
+mdadm --add    /dev/md0 /dev/sdb1
+
+echo check  > /sys/block/md0/md/sync_action
+echo repair > /sys/block/md0/md/sync_action
+
+mdadm --detail /dev/md0
+
+
+[ REEMPLAZAR UNIDAD ]
+
+[ FALLO Y QUITAR ]
+mdadm --manage /dev/md0 --fail /dev/sdb1
+mdadm --manage /dev/md0 --remove /dev/sdb1
+
+[ REPARTICIONADO Y AÑADIR AL RAID ]
+sfdisk -d /dev/sda | sfdisk /dev/sdb
+mdadm --manage /dev/md0 --add /dev/sdb1

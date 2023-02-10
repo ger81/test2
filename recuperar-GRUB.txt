@@ -1,0 +1,29 @@
+[ Recuperar grub EFI] 
+[ Estructura] 
+
+sda1 → efi
+sda2 → boot
+sda3 → swap
+sda4 → root
+
+[ Montar root, boot y efi dentro de boot ] 
+
+mount /dev/sda4 /mnt
+mount /dev/sda2 /mnt/boot
+mount /dev/sda1 /mnt/boot/efi
+
+[ Montar proc y los directorios virtuales ]
+
+mount -t proc /proc /mnt/proc
+
+mount --bind /dev /mnt/dev
+mount --bind /dev/pts /mnt/dev/pts
+mount --bind /sys /mnt/sys
+
+[ Crear jaula chroot e instalar grub ]
+
+chroot /mnt
+
+grub-install 
+grub-mkconfig -o /boot/grub/grub.cfg
+

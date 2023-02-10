@@ -1,0 +1,21 @@
+git checkout main [ selecciono la branch ]
+
+git pull origin main [ traigo el codigo ]
+
+git branch develop/1.0.0 [crea una branc ]
+
+git checkout develop/1.0.0 [ selecciono la branch ]
+
+git add -A  [ añado los cambio a staging ]
+
+git commit -m "develop/1.0.0" [ se hace el commit ]
+
+git push origin develop/1.0.0 [ se sube la branch ]
+
+git checkout main [ cambio a main ]
+
+git branch --merged [ que hay mergeado ]
+
+git merge develop/1.0.0 [ merge ]
+
+git push origin main [ se sube la main ]
