@@ -21,3 +21,4 @@ mdadm --manage /dev/md0 --remove /dev/sdb1
 [ REPARTICIONADO Y AÑADIR AL RAID ]
 sfdisk -d /dev/sda | sfdisk /dev/sdb
 mdadm --manage /dev/md0 --add /dev/sdb1
+
