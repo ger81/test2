@@ -7,8 +7,10 @@ mdadm --add    /dev/md0 /dev/sdb1
 echo check  > /sys/block/md0/md/sync_action
 echo repair > /sys/block/md0/md/sync_action
 
-mdadm --detail /dev/md0
+[ ESTADO DEL RAID ]
 
+cat /proc/mdstat
+mdadm --detail /dev/md0
 
 [ REEMPLAZAR UNIDAD ]
 
