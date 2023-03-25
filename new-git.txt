@@ -1,0 +1,26 @@
+- git clone https://...
+- git fetch origin
+- git branch -v -a
+- git switch -c test origin/test (git checkout -b test origin/test en versiones anteriores a 2.23)
+... cambios ... 
+- git add .
+- git commit -m "cambios"
+- git status (verificar que se envía a la rama correcta)
+- git push origin
+- PR cuando toque en main remota.
+
+ 
+
+rama nueva no creada:en bitbucket
+
+ 
+
+- git switch -c nueva-local (git checkout -b nueva-local en versiones anteriores a 2.23)
+- git push --set-upstream origin nueva-remota
+- git status
+- ...cambios...
+- git add .
+- git commit -m "cambios"
+- git status
+- git push origin
+- PR cuando toque en main remota
